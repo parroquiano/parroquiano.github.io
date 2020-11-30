@@ -14,9 +14,16 @@ figure img {
 	margin-bottom: 0;
 }
 
-figcaption p {
+figcaption p, .caption {
 	font-style: italic;
 	font-size: 85%;
+    color: #606060;
+    margin: 0;
+    padding: 0 0 0.5em;
+}
+
+.caption {
+    text-align: right;
 }
 
 blockquote {
@@ -36,6 +43,7 @@ blockquote p {
 
 .post-title, .page-title {
 	font-size: 2em;
+	text-shadow: 1px 1px #fff;
 }
 
 .tag-item {
@@ -161,7 +169,7 @@ blockquote p {
 }
 
 .center-bg {
-	background-position: left top;
+	background-position: center top;
 	background-repeat: no-repeat;
 }
 
@@ -171,6 +179,7 @@ blockquote p {
 
 .post-date {
 	color: #000;
+	text-shadow: 0 1px  #e6e6e6;
 }
 
 .post-date a {
