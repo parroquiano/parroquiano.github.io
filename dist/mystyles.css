@@ -239,3 +239,27 @@ blockquote p {
 	font-weight: bold;
 	text-align: right;
 }
+
+.post-content td {
+	padding: 0.5em 0.5em 1em 0.5em;
+	vertical-align: top;
+}
+
+.post-content td i {
+    font-size: 170%;
+	padding: 0.2em 0.5em 0 0.7em;
+}
+
+.post-content td a {
+	display: block;
+	font-weight: 700;
+	margin-bottom: 0.5em;
+	padding: 0;
+}
+
+.post-content td a:hover {
+	color: #424242;
+	border-bottom: 0;
+	padding: 0;
+}
+
