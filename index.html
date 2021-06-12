@@ -18,10 +18,10 @@
         <link rel="icon" type="image/png" sizes="120x120" href="/favicon-120.png">
         <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
         <link rel="apple-touch-icon" type="image/png" sizes="120x120" href="/favicon-120.png">
-        <link rel="stylesheet" href="/dist/styles.css">
-        <link rel="stylesheet" href="/dist/mystyles.css">
         <link rel="stylesheet" href="/css/open-sans.css">
         <link rel="stylesheet" href="/css/all.css">
+        <link rel="stylesheet" href="/dist/styles.css">
+        <link rel="stylesheet" href="/dist/mystyles.css">
         
     </head>
     <body>
@@ -30,8 +30,11 @@
                 <div class="container">
                     <div class="site-title-wrapper">
                         
-                        <a class="button-square hint--top home-button" data-hint="parroquiano.net" title="parroquiano.net" href="/">
+                        <a class="button-square hint--top home-button" data-hint="parroquiano.net" title="parroquiano.net" href="/home/">
                             <i class="fas fa-home"></i>
+                        </a>
+                        <a class="button-square hint--top home-button" data-hint="Blog" title="Blog" href="/">
+                            <i class="fas fa-scroll"></i>
                         </a>
                         
                             <a class="button-square button-social hint--top" data-hint="Twitter" title="Twitter" href="https://twitter.com/@parroquiano">
@@ -55,14 +58,23 @@
                         
                     </div>
                     <ul class="site-nav" id="navbar">
-                            <li class="site-nav-item">
+                        
+    <li class="site-nav-item">
+        <a href="/home/">Marco Bravo</a>
     </li>
+	
+		<li class="site-nav-item">
+			<a href="/">Blog</a>
+		</li>
+	
 
     <li class="site-nav-item">
     </li>
+	
 
     <li class="site-nav-item">
     </li>
+	
 
 
                         <li class="site-nav-item">
@@ -114,19 +126,25 @@
 </thead>
 <tbody>
 <tr>
-<td><i class="fas fa-mail-bulk"></i>
+<td><i class="fas fa-mail-bulk big-icon"></i>
 </td>
-<td><a href="https://github.com/parroquiano/imapcopy">IMAP Copy</a> <em>Fork</em> de r00tat/imap_copy. Un utilitario simple para copiar carpetas entre servidores IMAP.</td>
+<td><a href="https://github.com/parroquiano/imapcopy">IMAP Copy</a> <em>Fork</em> de r00tat/imap_copy. Un utilitario simple para copiar carpetas de correos entre servidores IMAP.<br/><br/>
+Hice este <em>fork</em> para agregar un par de opciones para examinar la conexión IMAP y mostrar una lista de las carpetas remotas. Este utilitario lo usé para para migrar diez años de mensajes de correo cuando cambié de proveedor de correo electrónico.<br/><br/>
+</td>
 </tr>
 <tr>
-<td><i class="fab fa-python"></i>
+<td><i class="fab fa-python big-icon"></i>
 </td>
-<td><a href="https://github.com/parroquiano/cpanel-api">cPanel API</a> <em>Fork</em> de tz4678/cpanel-api. Cliente de API de cPanel para Python.</td>
+<td><a href="https://github.com/parroquiano/cpanel-api">cPanel API</a> <em>Fork</em> de tz4678/cpanel-api. Cliente de API de cPanel para Python.<br/><br/>
+Agregué una opción de autenticación con <em>tokens</em> UAPI. Ahora estoy construyendo un utilitario de línea de comandos completo para cPAnel 2 usando esta API como base.<br/><br/>
+</td>
 </tr>
 <tr>
-<td><i class="fas fa-pen-fancy"></i>
+<td><i class="fas fa-pen-fancy big-icon"></i>
 </td>
-<td><a href="https://github.com/parroquiano/auctores">Auctores</a> Este es un proyecto artístico sin sentido. (Nadie dijo que el arte debía tener sentido.)</td>
+<td><a href="https://github.com/parroquiano/auctores">Auctores</a> Este es un proyecto artístico sin sentido. (Nadie dijo que el arte debía tener sentido.) <br/><br/>
+Es un desperdicio de buen código porque no hace nada útil.<br/><br/>
+</td>
 </tr>
 </tbody>
 </table>
@@ -142,7 +160,7 @@
             <div class="container">
                 <div class="footer-buttons-wrapper">
                    <a class="button-square hint--top home-button" data-hint="parroquiano.net" title="parroquiano.net" href="/">
-                        <i class="fas fa-home"></i>
+                        <i class="fas fa-scroll"></i>
                    </a>
                     <a class="button-square button-jump-top js-jump-top" href="#">
                         <i class="fas fa-angle-up"></i>
@@ -150,7 +168,7 @@
                 </div>
 
                 <p class="footer-copyright">
-                    <span><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es">CC BY-NC-SA 4.0</a> Marco Bravo 2020</span>
+                    <span><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es">CC BY-NC-SA 4.0</a> Marco Bravo 2020-2020</span>
                 </p>
                 <p class="footer-copyright">
                     <span>Construido con <a href="https://gohugo.io/">Hugo</a></span>

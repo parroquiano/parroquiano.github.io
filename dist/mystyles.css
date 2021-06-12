@@ -52,10 +52,19 @@ blockquote p {
 
 .tag-cloud {
 	text-align: center;
-	padding: 0 3em 0 3em;
+	padding: 1.5em 3em 0 3em;
+	line-height: 1.9em;
+}
+
+.tag-cloud-item {
+	border: 1px solid #fffae4;
+	border-radius: 5px;
+	background-color: #fffae4;
+	padding: 0 2px 0 2px;
 }
 
 .tag-cloud-title {
+	margin-top: 2em;
 	display: block;
 	text-align: center;
 }
@@ -157,8 +166,8 @@ blockquote p {
 }
 
 .headline {
-	font-size: 110%;
-	text-transform: lowercase;
+	font-size: 100%;
+	text-transform: uppercase;
 	text-shadow: 1px 1px #fff;
 }
 
@@ -174,7 +183,7 @@ blockquote p {
 }
 
 .offset-top {
-	padding-top: 2em;
+	padding-top: 1.7em;
 }
 
 .post-date {
@@ -243,11 +252,7 @@ blockquote p {
 .post-content td {
 	padding: 0.5em 0.5em 1em 0.5em;
 	vertical-align: top;
-}
-
-.post-content td i {
-    font-size: 170%;
-	padding: 0.2em 0.5em 0 0.7em;
+	line-height: 150%;
 }
 
 .post-content td a {
@@ -263,3 +268,7 @@ blockquote p {
 	padding: 0;
 }
 
+.big-icon {
+	font-size: 250%;
+	padding: 0.5em 0.5em 0 0.7em;
+}
