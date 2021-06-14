@@ -88,11 +88,16 @@ blockquote p {
 }
 
 .square-icon {
-	padding: 0;
-	margin: 0;
-	height: 1.147em;
+	height: 1.12em;
+	width: 1em;
 }
 
+.svg-icon {
+	width: 1.2em;
+	height: 1.2em;
+	margin: 0;
+	padding: 0;
+}
 .site-lang  {
 	list-style: none;
     text-align: center;
@@ -272,3 +277,4 @@ blockquote p {
 	font-size: 250%;
 	padding: 0.5em 0.5em 0 0.7em;
 }
+
