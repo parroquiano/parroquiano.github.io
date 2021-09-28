@@ -57,7 +57,7 @@ blockquote p {
 }
 
 .tag-cloud-item {
-	border: 1px solid #feefef;
+	border: 2px solid #eddede;
 	border-radius: 5px;
 	background-color: white;
 	padding: 0 2px 0 2px;
@@ -83,8 +83,8 @@ blockquote p {
 }
 
 .button-jump-top {
-    margin: 0 0 0 10px;
-    padding: 8px 13px 8px;
+    margin: 0 0 0 15px;
+    padding: 8px 12px 8px;
 }
 
 .square-icon {
@@ -105,9 +105,9 @@ blockquote p {
 }
 
 .site-nav-item a.hamburger {
-	font-size: 1.6em;
+	font-size: 1.45em;
     margin: 0 0 0 10px;
-    padding: 4px 9px 3px;
+    padding: 4px 10px 4px;
 	display: none;
 }
 
@@ -201,7 +201,7 @@ blockquote p {
 }
 
 .post-tags {
-	font-size: 110%;
+	font-size: 100%;
 }
 
 .post-stub-tag {
@@ -274,7 +274,7 @@ blockquote p {
 }
 
 .big-icon {
-	font-size: 250%;
-	padding: 0.5em 0.5em 0 0.7em;
+	font-size: 160%;
+	padding: 0.1em 0 0 0.2em;
 }
 
