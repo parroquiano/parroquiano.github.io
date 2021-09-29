@@ -53,14 +53,14 @@ blockquote p {
 .tag-cloud {
 	text-align: center;
 	padding: 1.5em 3em 0 3em;
-	line-height: 1.9em;
+	line-height: 2.3em;
 }
 
 .tag-cloud-item {
 	border: 2px solid #eddede;
 	border-radius: 5px;
 	background-color: white;
-	padding: 0 2px 0 2px;
+	padding: 3px 5px 3px 5px;
 }
 
 .tag-cloud-title {
@@ -201,7 +201,7 @@ blockquote p {
 }
 
 .post-tags {
-	font-size: 100%;
+	font-size: 95%;
 }
 
 .post-stub-tag {

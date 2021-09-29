@@ -114,7 +114,7 @@ table tr { border-bottom: 1px dotted #aeadad; }
 .site-logo { display: block; }
 .site-logo img { margin: 0; }
 .site-nav { list-style: none; margin: 28px 0 10px; padding: 0; }
-.site-nav-item { display: inline-block; font-size: 16px; font-weight: 700; margin: 0 10px; }
+.site-nav-item { display: inline-block; font-size: 14px; font-weight: 700; margin: 0 10px; }
 .site-nav-item a:hover { color: #424242; }
 #latest-post { display: none; }
 .post-container { margin: 0; }
@@ -133,7 +133,7 @@ table tr { border-bottom: 1px dotted #aeadad; }
 .post-footer { margin-top: 5px; }
 .post-tags, .share { color: #aeadad; font-size: 12px; }
 .post-tags span, .share span { font-weight: 600; }
-.post-tags { float: left; margin: 3px 0 0 10px; }
+.post-tags { float: left; margin: 3px 0 20px 10px; }
 .post-tags a:hover { color: #303030; }
 .share { float: right; }
 .share a { background: #c60; color: #fff; display: inline-block; font-size: 14px; margin-left: 5px; padding: 5px 0 4px; width: 30px; text-align: center; }
