@@ -83,16 +83,17 @@ blockquote p {
 	font-weight: bold;
 }
 
-.button-square, .share, .share a {
-    border-radius: 5px;
-	font-size: 1.5em;
-	padding: 8px;
-	width: auto;
+.button-square  {
+    border-radius: 18px;
+	font-size: 1.3em;
+	padding: 10px;
+	width: 1.5em;
 }
 
 .button-jump-top {
     margin: 0 0 0 15px;
     padding: 8px 12px 8px;
+	text-align: center;
 }
 
 .square-icon {
@@ -113,16 +114,16 @@ blockquote p {
 }
 
 .site-nav-item a.hamburger {
-	font-size: 1.45em;
-    margin: 0 0 0 10px;
-    padding: 4px 10px 4px;
+	font-size: 1.3em;
+    margin: 0 0 0 8px;
+    padding: 8px 10px 8px;
 	display: none;
 }
 
 .share, .share a {
-	font-size: 1.3em;
-    margin: 0 0 0 10px;
-    padding: 8px 9px 7px;
+	font-size: 1.2em;
+    margin: 0 0 0 8px;
+    padding: 10px 15px 10px 15px;
 }
 .site-nav-item a.hamburger:hover {
     color: white;
@@ -170,7 +171,7 @@ blockquote p {
 }
 
 .footer {
-    padding-bottom: 3em;
+    padding-bottom: 2em;
 }
 
 .footer-buttons-wrapper {
@@ -282,7 +283,7 @@ blockquote p {
 }
 
 .big-icon {
-	font-size: 160%;
+	font-size: 300%;
 	padding: 0.1em 0 0 0.2em;
 }
 
