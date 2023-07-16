@@ -102,7 +102,7 @@ table tr { border-bottom: 1px dotted #aeadad; }
 #wrapper:after { content: ""; display: block; height: 265px; }
 .button { background: #303030; border: none; border-radius: 3px; color: #fefefe; font-size: 12px; font-weight: 700; padding: 10px 12px; text-transform: uppercase; }
 .button:hover { background: #53a8b7; }
-.button-square { background: #53a8b7; color: #fff; float: left; font-size: 14px; margin: 0 0 0 10px; padding: 3px 8px 4px; }
+.button-square { background: #53a8b7; color: #fff; float: left; font-size: 14px; margin: 0 0 0 8px; padding: 3px 8px 4px; }
 .button-square:hover { background: #303030; }
 .error { text-align: center; }
 .comments { margin-top: 10px; }
