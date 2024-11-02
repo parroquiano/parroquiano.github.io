@@ -146,9 +146,9 @@ table tr { border-bottom: 1px dotted #aeadad; }
 .post-list, .post-content { margin-left: 2em; margin-right: 1.5em; }
 .post-stub { border-bottom: 1px dotted #303030; margin: 0; position: relative; }
 .post-stub:first-child { padding-top: 0; }
-.post-stub a { -webkit-transition: all .2s ease-in-out; -moz-transition: all .2s ease-in-out; transition: all .2s ease-in-out; display: block; color: #424242; padding: 20px 5px; }
-.post-stub a:hover { background: #fffae4; color: #53a8b7; padding: 20px 12px; }
-.post-stub a:hover .post-stub-tag { background: #53a8b7; }
+.post-stub > a { -webkit-transition: all .2s ease-in-out; -moz-transition: all .2s ease-in-out; transition: all .2s ease-in-out; display: block; color: #424242; padding: 20px 5px; }
+.post-stub > a:hover { background: #fffae4; color: #53a8b7; padding: 20px 12px; }
+.post-stub > a:hover .post-stub-tag { background: #53a8b7; }
 .post-stub-tag { background: #303030; border-radius: 3px; color: #fff; float: right; font-size: 8px; margin: 7px 0 0; padding: 0 5px; text-transform: uppercase; }
 .post-stub-title { display: inline-block; margin: 0; text-transform: none; }
 .post-stub-description { display: inline-block; margin: 0; text-transform: none; }
