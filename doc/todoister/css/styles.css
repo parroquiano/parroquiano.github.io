@@ -9,19 +9,35 @@ body {
     padding-bottom: 8rem;
 }
 
+.icon {
+    height: 50px;
+    margin: 0 1rem 0 0;
+    float: left;
+}
+
 h1,
 h2 {
     font-weight: 600;
 }
 
 h1 {
-    font-size: 5rem;
-} 
+    font-size: 3rem;
+    color: #de483a;
+}
+
+h2 {
+    font-size: 1.6rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+}
 
 .translated {
-    font-size: 0.9rem;
-    padding: 0.5rem 1rem 1rem 1.5rem;
-} 
+    font-variant: small-caps;
+    font-size: 1.2rem;
+    padding: 0.5rem 1rem 1rem 0;
+}
 
 h3,
 h4,
@@ -31,8 +47,8 @@ h6 {
 }
 
 h2 {
-    border-bottom: 1px solid #e83e8c;
-    color: #e83e8c;
+    border-bottom: 1px solid #de483a;
+    color: #de483a;
     margin: 4rem 0 2rem 0;
     padding: 1rem 0 0.5rem 0;
 }
@@ -56,7 +72,7 @@ pre {
 
 blockquote {
     font-weight: 400;
-    font-size: 1.35rem;
+    font-size: 1.3rem;
     margin: 1rem 0 2rem;
     border-left: 2px solid #ccc;
     padding-left: 2rem;
@@ -71,7 +87,7 @@ dd {
 }
 
 .container {
-    font-size: 1.1rem;
+    font-size: 1.0rem;
 }
 
 .pagination {
@@ -122,10 +138,6 @@ dd {
     font-weight: 600;
 }
 
-.icon {
-    margin: 0 0 0.5rem 1.5rem;
-}
-
 .bd-toc {
     font-size: 1rem;
     top: 1rem;
@@ -148,6 +160,7 @@ dd {
 
 .toc-entry {
     margin-left: -15px;
+    margin-top: 2rem;
     display: block;
 }
 
@@ -155,7 +168,7 @@ dd {
     display: block;
     padding: .125rem 1.5rem;
     font-weight: bold;
-    color: #e83e8c;
+    color: #de483a;
 }
 
 .toc-entry a:hover {
