@@ -41,17 +41,8 @@ export</a></li>
 <div class="col-xl-10"><p><a href="https://layfellow.github.io/doc/todoister/" class="translated">Read
 in English</a></p><img src="img/icon.png" class="icon"><h1
 id="todoister">Todoister</h1>
-<p>Lorem ipsum dolor sit amet,</p>
-<p>consectetur adipiscing elit.</p>
-<h3 id="opciones">Opciones</h3>
-<dl>
-<dt>
-<code>-t</code>, <code>--token</code> <code>&lt;string&gt;</code>
-</dt>
-<dd>
-Sobrescribir el token de Todoist
-</dd>
-</dl>
+<p>Todoister es un cliente CLI simple para Todoist escrito en Go.</p>
+<h3 id="comandos">Comandos</h3>
 <ul>
 <li><a href="#todoister-version">todoister version</a> - Imprimir el
 número de versión</li>
@@ -62,105 +53,117 @@ proyecto</li>
 proyectos en formato JSON o YAML</li>
 </ul>
 <h2 id="todoister-version">todoister version</h2>
-<div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">todoister</span> version</span></code></pre></div>
-<h3 id="opciones-comunes">Opciones comunes</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">todoister</span> version <span class="pp">[</span><span class="ss">flags</span><span class="pp">]</span></span></code></pre></div>
+<p>Imprime el número de versión de Todoister.</p>
+<h3 id="opciones-globales">Opciones Globales</h3>
 <dl>
 <dt>
 <code>-t</code>, <code>--token</code> <code>&lt;string&gt;</code>
 </dt>
 <dd>
-Sobrescribir el token de Todoist
+utilice <code>&lt;string&gt;</code> como token de la API de Todoist
 </dd>
 </dl>
 <h2 id="todoister-list">todoister list</h2>
-<div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">todoister</span> list <span class="pp">[</span><span class="ss">project</span><span class="pp">]</span>...</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">todoister</span> list <span class="pp">[</span><span class="ss">project</span><span class="pp">]</span>... <span class="pp">[</span><span class="ss">flags</span><span class="pp">]</span></span></code></pre></div>
 <p>Lista proyectos y subproyectos.</p>
-<p>project... son los nombres de uno o más proyectos o subproyectos a
-listar. Si no se proporciona un nombre de proyecto, se listarán todos
-los proyectos. Puede especificar un nombre de proyecto por su ruta
-completa, por ejemplo, "Work/Project". Los nombres no distinguen entre
-mayúsculas y minúsculas.</p>
-<h3 id="opciones-comunes-1">Opciones comunes</h3>
+<p><code>project</code> es el nombre de uno o más proyectos de los
+cuales listar tareas. Si no se proporciona <code>project</code>, se
+listarán todos los proyectos. Puede especificar un nombre de proyecto
+por su ruta completa, por ejemplo, <code>Work/Project</code>. Los
+nombres no distinguen entre mayúsculas y minúsculas.</p>
+<h3 id="opciones-globales-1">Opciones Globales</h3>
 <dl>
 <dt>
 <code>-t</code>, <code>--token</code> <code>&lt;string&gt;</code>
 </dt>
 <dd>
-Reemplazar el token de Todoist
+utilizar <code>&lt;string&gt;</code> como token de la API de Todoist
 </dd>
 </dl>
 <h3 id="ejemplos">Ejemplos</h3>
-<div class="sourceCode" id="cb3"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">todoister</span> ls</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="ex">todoister</span> ls Work Life</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="ex">todoister</span> ls Work/Project</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Listar todos los proyectos y subproyectos:</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="ex">todoister</span> ls</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Listar los proyectos Work y Life y sus subproyectos:</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="ex">todoister</span> ls Work Life</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Listar todos los subproyectos de Project, que es un subproyecto de Work:</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="ex">todoister</span> ls Work/Project</span></code></pre></div>
 <h2 id="todoister-tasks">todoister tasks</h2>
-<div class="sourceCode" id="cb4"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">todoister</span> tasks project...</span></code></pre></div>
-<p>Lista las tareas del proyecto.</p>
-<p>project... son los nombres de uno o más proyectos cuyas tareas desea
-listar. Puede especificar un nombre de proyecto por su ruta completa,
-por ejemplo, "Work/Project". Los nombres no distinguen entre mayúsculas
-y minúsculas.</p>
-<h3 id="opciones-comunes-2">Opciones comunes</h3>
+<div class="sourceCode" id="cb4"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">todoister</span> tasks project... <span class="pp">[</span><span class="ss">flags</span><span class="pp">]</span></span></code></pre></div>
+<p>Listar tareas del proyecto.</p>
+<p><code>project</code> es el nombre de uno o más proyectos de los
+cuales listar tareas. Puede especificar un nombre de proyecto por su
+ruta completa, por ejemplo, <code>Work/Project</code>. Los nombres no
+distinguen entre mayúsculas y minúsculas.</p>
+<h3 id="opciones-globales-2">Opciones Globales</h3>
 <dl>
 <dt>
 <code>-t</code>, <code>--token</code> <code>&lt;string&gt;</code>
 </dt>
 <dd>
-Sobrescribir el token de Todoist
+usar <code>&lt;string&gt;</code> como token de la API de Todoist
 </dd>
 </dl>
 <h3 id="ejemplos-1">Ejemplos</h3>
-<div class="sourceCode" id="cb5"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">todoister</span> tasks Life</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="ex">todoister</span> tasks Work/Project</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Listar tareas para el proyecto Life:</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="ex">todoister</span> tasks Life</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Listar tareas para el subproyecto Project del proyecto Work:</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="ex">todoister</span> tasks Work/Project</span></code></pre></div>
 <h2 id="todoister-export">todoister export</h2>
 <div class="sourceCode" id="cb6"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">todoister</span> export <span class="pp">[</span><span class="ss">path</span><span class="pp">]</span> <span class="pp">[</span><span class="ss">flags</span><span class="pp">]</span></span></code></pre></div>
-<p>Exporte todos los proyectos de Todoist.</p>
+<p>Exporte todos los proyectos de Todoist como un árbol de archivos JSON
+o YAML.</p>
 <ul>
-<li><p><code>path</code> archivo o directorio donde exportar los
-proyectos, por defecto <code>index.json</code> o <code>index.yaml</code>
-(si se especifica <code>--yaml</code>) en el directorio actual.</p></li>
-<li><p><code>-d</code>, <code>--depth N</code> cuando se proporciona,
-todoister creará directorios hasta <code>N</code> niveles de
-profundidad, escribiendo cada subproyecto en un archivo
-separado.</p></li>
+<li><code>path</code> es un archivo o directorio donde exportar los
+proyectos, por defecto <code>index.json</code>.</li>
 </ul>
-<h3 id="opciones-1">Opciones</h3>
+<h3 id="opciones">Opciones</h3>
 <dl>
 <dt>
 <code>-d</code>, <code>--depth</code> <code>&lt;int&gt;</code>
 </dt>
 <dd>
-Profundidad del árbol de subdirectorios al exportar (por defecto 0, es
-decir, sin subdirectorios)
+profundidad del árbol de subdirectorios a crear en el sistema de
+archivos al exportar (por defecto es 0, es decir, sin subdirectorios)
 </dd>
 <dt>
 <code>--json</code>
 </dt>
 <dd>
-Exportar en formato JSON (por defecto)
+exportar en formato JSON (por defecto)
 </dd>
 <dt>
 <code>--yaml</code>
 </dt>
 <dd>
-Exportar en formato YAML
+exportar en formato YAML
 </dd>
 </dl>
-<h3 id="opciones-comunes-3">Opciones comunes</h3>
+<h3 id="opciones-globales-3">Opciones Globales</h3>
 <dl>
 <dt>
 <code>-t</code>, <code>--token</code> <code>&lt;string&gt;</code>
 </dt>
 <dd>
-Sobrescribir el token de Todoist
+utilizar <code>&lt;string&gt;</code> como token de la API de Todoist
 </dd>
 </dl>
 <h3 id="ejemplos-2">Ejemplos</h3>
 <div class="sourceCode" id="cb7"><pre
-class="sourceCode sh"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">todoister</span> export</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="ex">todoister</span> export ~/todoist.json</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="ex">todoister</span> export ~/todoist.yaml <span class="at">--yaml</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="ex">todoister</span> export ~/projects <span class="at">--json</span> <span class="at">-d</span> 3</span></code></pre></div></div>
+class="sourceCode sh"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Exportar a un único archivo index.json en el directorio actual:</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="ex">todoister</span> export</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Exportar a un archivo todoist.json en el directorio de inicio:</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="ex">todoister</span> export ~/todoist.json</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Exportar a un archivo todoist.yaml en el directorio de inicio:</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="ex">todoister</span> export ~/todoist.yaml <span class="at">--yaml</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Exportar a un directorio de proyectos en el inicio, con subdirectorios hasta 3 niveles de profundidad:</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="ex">todoister</span> export ~/projects <span class="at">--json</span> <span class="at">-d</span> 3</span></code></pre></div></div>
 </div>
 </div>
 <!-- jQuery -->
@@ -180,13 +183,11 @@ function load() { if (window.location.hash) shiftWindow(); }
 <!-- Footer -->
 <footer class="footer text-muted">
 <div align="center">
-Contenido bajo
-licencia <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a>
+<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a>
+2024 Marco Bravo Mejías
 <br>
 Código fuente bajo
 licencia <a href="https://www.gnu.org/licenses/gpl-3.0.en.html" target="_blank" rel="noopener">GPL-3.0</a>
-<br>
-Copyright © 2024 Marco Bravo Mejías
 <br>
 Construido
 con <a href="https://github.com/ashki23/pandoc-bootstrap" target="_blank" rel="noopener">pandoc-bootstrap</a>
