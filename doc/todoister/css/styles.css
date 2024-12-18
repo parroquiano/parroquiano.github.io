@@ -1184,6 +1184,8 @@ code.sourceCode.bash {
 
 code span.co {
   color: #60a0b0;
+  font-size: 1rem;
+  font-family: sans-serif;
   font-style: italic;
 }
 .spec main code {
