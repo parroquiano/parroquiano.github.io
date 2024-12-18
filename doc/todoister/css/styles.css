@@ -207,6 +207,7 @@ html {
   border-width: 0;
   border-style: solid;
   border-color: #e2e8f0;
+  overflow-x: auto;
 }
 
 hr {
@@ -1187,16 +1188,13 @@ code span.co {
   font-size: 0.9rem;
 }
 .spec main code {
-  color: #556688;
+  color: #000;
   --bg-opacity: 1;
   --text-opacity: 1;
   font-weight: bold;
-  margin-left: 0.25rem;
-  margin-right: 0.25rem;
-  padding-left: 0.25rem;
-  padding-right: 0.25rem;
   border-radius: 0.25rem;
   white-space: nowrap;
+  font-size: 0.85rem;
 }
 
 .spec dt {
