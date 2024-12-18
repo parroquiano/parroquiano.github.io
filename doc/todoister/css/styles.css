@@ -43,7 +43,7 @@ strong {
 
 code, kbd, samp {
   font-family: monospace, monospace;
-  font-size: 1em;
+  font-size: 0.9em;
 }
 
 small {
@@ -309,9 +309,9 @@ img, video {
   }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 768px) {
   .container {
-    max-width: 1024px;
+    max-width: 768px;
   }
 }
 
@@ -366,7 +366,7 @@ img, video {
   margin-bottom: 0.5rem;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 768px) {
   .feature-title {
     font-size: 1.5rem;
   }
@@ -378,7 +378,7 @@ img, video {
   padding: 1rem;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 768px) {
   .code {
     padding: 2rem;
     border-radius: 0.5rem;
@@ -390,7 +390,7 @@ img, video {
   padding-right: 1rem;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 768px) {
   .tour-text {
     padding-left: 0;
     padding-right: 0;
@@ -1147,14 +1147,12 @@ img, video {
   font-size: 1.5rem;
   font-weight: 600;
   color: #de483a;
-  padding-top: 8rem;
-  margin-top: -4rem;
+  padding-top: 7.8rem;
+  margin-top: -5.5rem;
 }
 
 .spec main h1 {
   font-size: 3rem;
-  padding-top: 0;
-  margin-top: 0;
 }
 
 .spec main h2 a {
@@ -1216,7 +1214,7 @@ code span.co {
   }
 
   .spec main h1 {
-    padding-top: 2rem;
+    padding-top: 4.5rem;
     margin-top: 0;
   }
 
@@ -1225,7 +1223,7 @@ code span.co {
   }
 
   .spec main h2 {
-    margin-top: -4rem;
+    margin-top: -4.2rem;
   }
 }
 
@@ -1254,7 +1252,7 @@ code span.co {
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 640px) {
   .md\:hidden {
     display: none;
   }
@@ -1280,7 +1278,7 @@ code span.co {
   }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 768px) {
   .lg\:border-r-2 {
     border-right-width: 2px;
   }
