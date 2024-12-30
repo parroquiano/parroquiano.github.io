@@ -8,106 +8,167 @@
       <meta name="author" content="Marco Bravo Mejías">
       
       <title>Todoister</title>
-      <link rel="stylesheet" href="css/styles.css" />
-      <script type="text/javascript" src="js/application.js"></script>
+      <link href="css/styles.css" rel="stylesheet">
+      <style>
+        html {
+          scroll-behavior: smooth;
+        }
+        body {
+          font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Arial, sans-serif; 
+          font-size: 90%;
+        }
+        code, pre {
+          font-family: "Cascadia Code", "Fira Code", Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+        }
+        li a { color: #30a0ff; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        header a { color: #30a0ff; }
+        pre { background: #f6f6f6; border: 1px solid #c0c0c0; padding: 1rem; overflow-x: auto; border-radius: 0.5rem; }
+        h1, h2 { color: #de483a; font-weight: bold; }
+        h2 { font-size: 150%; }
+        #sidebar nav ul {
+            margin-top: 0.5rem;
+            color: #de483a;
+        }
+        #sidebar nav ul li {
+            margin-left: 2rem;
+        }
+        #sidebar nav ul li a {
+            color: #de483a;
+        }
+        .prose h2 {
+            font-size: 1.5em !important;
+            padding-top: 3rem !important;
+            scroll-margin-top: 4.9rem !important;
+        }
+        .prose h1 {
+            font-size: 2em !important;
+            scroll-margin-top: 5.5rem !important;
+        }
+        .prose code {
+            font-size: 85%;
+        }
+        .prose p {
+            margin-top: 1rem;
+        }
+        .prose h3 {
+            margin-top: 1rem;
+        }
+        .prose dl {
+            margin-left: 1rem;
+        }
+        .prose dd {
+            margin-left: 2rem;
+        }
+        .prose code:not(pre code) {
+            font-weight: bold;
+        }
+        .prose ul {
+            margin-top: 1rem;
+        }
+        footer a {
+            color: #30a0ff !important;
+        }
+        .co {
+            font-style: italic;
+            color: #666;
+        }
+      </style>
          </head>
-   <body class="bg-white text-gray-900 font-sans antialiased" data-controller="application">
-   <header class="items-center bg-white shadow fixed left-0 right-0 z-30">
-            <div class="flex flex-1 items-center p-3">
-         <a class="flex items-center font-mono tracking-tighter" href="#">
-            <img alt="Icon" src="img/icon.png" class="icon">
-             <div class="w-48 md:w-64"><a href="https://layfellow.github.io/doc/todoister/" class="translated">Read
+   <body class="min-h-screen flex flex-col bg-white font-sans">
+   <header class="bg-white shadow-sm fixed w-full z-10">
+            <div class="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+         <div class="flex items-center space-x-3">
+            <button id="menuBtn" class="md:hidden text-gray-500 hover:text-gray-700">
+               <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+               </svg>
+            </button>
+            <div class="flex items-center space-x-1">
+               <a href="#"><img alt="Icon" src="img/icon.png" class="h-12 w-12"></a>
+               <div class="text-sm font-mono text-gray-600"><span class="ml-6">v0.2.2</span></div>
+            </div>
+         </div>
+         <div class="text-base"><a href="https://layfellow.github.io/doc/todoister/" class="hover:underline">Read
 in English</a></div>
-         </a>
       </div>
-
-      <nav class="absolute top-0 right-0 mt-3 w-full md:w-auto py-1 px-2">
-         <pre class="font-mono text-sm mt-1 hidden lg:block">v0.2.2</pre>
-      </nav>
    </header>
 
-   <div class="spec" data-controller="nav" data-action="scroll@window->nav#scroll">
-      <div class="lg:flex pt-14">
-                  <aside class="w-full bg-white lg:w-64 lg:pr-64 lg:block">
-            <div class="fixed bg-white z-20 left-0 right-0 mt-3 pl-4 py-4 border-b lg:hidden" data-target="nav.menuLink">
-               <div class="relative">
-                  <a href="#" class="block font-bold text-xl lg:hidden text-orange-800" data-action="click->nav#onMenuClick">&#x2630;</a>
-                  <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-                     <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"></path></svg>
-                  </div>
-               </div>
-            </div>
-            <nav class="hidden fixed w-full overflow-y-scroll top-0 bottom-0 bg-white z-10 py-32 pb-8 px-4 leading-snug lg:w-68 lg:block lg:pl-8 lg:py-24" data-target="nav.menu">
-               <ul>
-               <li><a href="#todoister" id="toc-todoister" data-target="nav.link" data-action="click->nav#click" data-id="todoister">Commands</a>
-               <ul>
-               <li><a href="#todoister-version" data-target="nav.link" data-action="click->nav#click" data-id="todoister-version"
-               id="toc-todoister-version">version</a></li>
-               <li><a href="#todoister-list" data-target="nav.link" data-action="click->nav#click" data-id="todoister-list"
-               id="toc-todoister-list">list</a></li>
-               <li><a href="#todoister-tasks" data-target="nav.link" data-action="click->nav#click" data-id="todoister-tasks"
-               id="toc-todoister-tasks">tasks</a></li>
-               <li><a href="#todoister-export" data-target="nav.link" data-action="click->nav#click" data-id="todoister-export"
-               id="toc-todoister-export">export</a></li>
-               </ul></li>
-               </ul>
-            </nav>
-         </aside>
-         <main class="overflow-auto">
-           <div class="w-full lg:max-w-4xl mx-auto bg-white p-8 spec">
-             <h1 id="todoister">Todoister</h1>
-             <p>Todoister es un cliente CLI simple para Todoist escrito
-             en Go.</p>
-             <h3 id="comandos">Comandos</h3>
-             <ul>
-             <li><a href="#todoister-version" data-target="nav.link" data-action="click->nav#click" data-id="todoister-version">version</a> - Imprimir el
-             número de versión</li>
-             <li><a href="#todoister-list" data-target="nav.link" data-action="click->nav#click" data-id="todoister-list">list</a> - Listar
-             proyectos</li>
-             <li><a href="#todoister-tasks" data-target="nav.link" data-action="click->nav#click" data-id="todoister-tasks">tasks</a> - Listar tareas
-             del proyecto</li>
-             <li><a href="#todoister-export" data-target="nav.link" data-action="click->nav#click" data-id="todoister-export">export</a> - Exportar
-             proyectos en formato JSON o YAML</li>
-             </ul>
-             <h2 id="todoister-version">version</h2>
-             <div class="sourceCode" id="cb1"><pre
-             class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">todoister</span> version <span class="pp">[</span><span class="ss">flags</span><span class="pp">]</span></span></code></pre></div>
-             <p>Imprime el número de versión de Todoister.</p>
-             <h3 id="opciones-globales">Opciones Globales</h3>
-             <dl>
-             <dt>
-             <code>-t</code>, <code>--token</code>
-             <code>&lt;string&gt;</code>
-             </dt>
-             <dd>
-             utilice <code>&lt;string&gt;</code> como token de la API de
-             Todoist
-             </dd>
-             </dl>
-             <h2 id="todoister-list">list</h2>
-             <div class="sourceCode" id="cb2"><pre
-             class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">todoister</span> list <span class="pp">[</span><span class="ss">project</span><span class="pp">]</span>... <span class="pp">[</span><span class="ss">flags</span><span class="pp">]</span></span></code></pre></div>
-             <p>Lista proyectos y subproyectos.</p>
-             <p><code>project</code> es el nombre de uno o más proyectos
-             de los cuales listar tareas. Si no se proporciona
-             <code>project</code>, se listarán todos los proyectos.
-             Puede especificar un nombre de proyecto por su ruta
-             completa, por ejemplo, <code>Work/Project</code>. Los
-             nombres no distinguen entre mayúsculas y minúsculas.</p>
-             <h3 id="opciones-globales-1">Opciones Globales</h3>
-             <dl>
-             <dt>
-             <code>-t</code>, <code>--token</code>
-             <code>&lt;string&gt;</code>
-             </dt>
-             <dd>
-             utilizar <code>&lt;string&gt;</code> como token de la API
-             de Todoist
-             </dd>
-             </dl>
-             <h3 id="ejemplos">Ejemplos</h3>
-             <div class="sourceCode" id="cb3"><pre
-             class="sourceCode sh"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Listar todos los proyectos y subproyectos:</span></span>
+   <div class="flex-grow pt-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 py-8">
+         <div class="block md:flex gap-8">
+                    <aside id="sidebar" class="hidden md:block fixed top-[72px] left-0 w-full md:w-64 md:flex-shrink-0 h-screen overflow-y-auto pb-20 bg-white z-20">
+             <nav>
+              <ul>
+              <li><a href="#todoister" id="toc-todoister" data-target="nav.link" data-action="click->nav#click" data-id="todoister">Commands</a>
+              <ul>
+              <li><a href="#todoister-version" data-target="nav.link" data-action="click->nav#click" data-id="todoister-version"
+              id="toc-todoister-version">version</a></li>
+              <li><a href="#todoister-list" data-target="nav.link" data-action="click->nav#click" data-id="todoister-list"
+              id="toc-todoister-list">list</a></li>
+              <li><a href="#todoister-tasks" data-target="nav.link" data-action="click->nav#click" data-id="todoister-tasks"
+              id="toc-todoister-tasks">tasks</a></li>
+              <li><a href="#todoister-export" data-target="nav.link" data-action="click->nav#click" data-id="todoister-export"
+              id="toc-todoister-export">export</a></li>
+              </ul></li>
+              </ul>
+             </nav>
+           </aside>
+           <main class="flex-grow md:ml-64 overflow-x-hidden">
+             <div class="prose prose-lg max-w-none">
+              <h1 id="todoister">Todoister</h1>
+              <p>Todoister es un cliente CLI simple para Todoist escrito
+              en Go.</p>
+              <h3 id="comandos">Comandos</h3>
+              <ul>
+              <li><a href="#todoister-version" data-target="nav.link" data-action="click->nav#click" data-id="todoister-version">version</a> - Imprimir el
+              número de versión</li>
+              <li><a href="#todoister-list" data-target="nav.link" data-action="click->nav#click" data-id="todoister-list">list</a> - Listar
+              proyectos</li>
+              <li><a href="#todoister-tasks" data-target="nav.link" data-action="click->nav#click" data-id="todoister-tasks">tasks</a> - Listar tareas
+              del proyecto</li>
+              <li><a href="#todoister-export" data-target="nav.link" data-action="click->nav#click" data-id="todoister-export">export</a> - Exportar
+              proyectos en formato JSON o YAML</li>
+              </ul>
+              <h2 id="todoister-version">version</h2>
+              <div class="sourceCode" id="cb1"><pre
+              class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">todoister</span> version <span class="pp">[</span><span class="ss">flags</span><span class="pp">]</span></span></code></pre></div>
+              <p>Imprime el número de versión de Todoister.</p>
+              <h3 id="opciones-globales">Opciones Globales</h3>
+              <dl>
+              <dt>
+              <code>-t</code>, <code>--token</code>
+              <code>&lt;string&gt;</code>
+              </dt>
+              <dd>
+              utilice <code>&lt;string&gt;</code> como token de la API
+              de Todoist
+              </dd>
+              </dl>
+              <h2 id="todoister-list">list</h2>
+              <div class="sourceCode" id="cb2"><pre
+              class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">todoister</span> list <span class="pp">[</span><span class="ss">project</span><span class="pp">]</span>... <span class="pp">[</span><span class="ss">flags</span><span class="pp">]</span></span></code></pre></div>
+              <p>Lista proyectos y subproyectos.</p>
+              <p><code>project</code> es el nombre de uno o más
+              proyectos de los cuales listar tareas. Si no se
+              proporciona <code>project</code>, se listarán todos los
+              proyectos. Puede especificar un nombre de proyecto por su
+              ruta completa, por ejemplo, <code>Work/Project</code>. Los
+              nombres no distinguen entre mayúsculas y minúsculas.</p>
+              <h3 id="opciones-globales-1">Opciones Globales</h3>
+              <dl>
+              <dt>
+              <code>-t</code>, <code>--token</code>
+              <code>&lt;string&gt;</code>
+              </dt>
+              <dd>
+              utilizar <code>&lt;string&gt;</code> como token de la API
+              de Todoist
+              </dd>
+              </dl>
+              <h3 id="ejemplos">Ejemplos</h3>
+              <div class="sourceCode" id="cb3"><pre
+              class="sourceCode sh"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Listar todos los proyectos y subproyectos:</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="ex">todoister</span> ls</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Listar los proyectos Work y Life y sus subproyectos:</span></span>
@@ -115,81 +176,81 @@ in English</a></div>
 <span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Listar todos los subproyectos de Project, que es un subproyecto de Work:</span></span>
 <span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="ex">todoister</span> ls Work/Project</span></code></pre></div>
-             <h2 id="todoister-tasks">tasks</h2>
-             <div class="sourceCode" id="cb4"><pre
-             class="sourceCode sh"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">todoister</span> tasks project... <span class="pp">[</span><span class="ss">flags</span><span class="pp">]</span></span></code></pre></div>
-             <p>Listar tareas del proyecto.</p>
-             <p><code>project</code> es el nombre de uno o más proyectos
-             de los cuales listar tareas. Puede especificar un nombre de
-             proyecto por su ruta completa, por ejemplo,
-             <code>Work/Project</code>. Los nombres no distinguen entre
-             mayúsculas y minúsculas.</p>
-             <h3 id="opciones-globales-2">Opciones Globales</h3>
-             <dl>
-             <dt>
-             <code>-t</code>, <code>--token</code>
-             <code>&lt;string&gt;</code>
-             </dt>
-             <dd>
-             usar <code>&lt;string&gt;</code> como token de la API de
-             Todoist
-             </dd>
-             </dl>
-             <h3 id="ejemplos-1">Ejemplos</h3>
-             <div class="sourceCode" id="cb5"><pre
-             class="sourceCode sh"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Listar tareas para el proyecto Life:</span></span>
+              <h2 id="todoister-tasks">tasks</h2>
+              <div class="sourceCode" id="cb4"><pre
+              class="sourceCode sh"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">todoister</span> tasks project... <span class="pp">[</span><span class="ss">flags</span><span class="pp">]</span></span></code></pre></div>
+              <p>Listar tareas del proyecto.</p>
+              <p><code>project</code> es el nombre de uno o más
+              proyectos de los cuales listar tareas. Puede especificar
+              un nombre de proyecto por su ruta completa, por ejemplo,
+              <code>Work/Project</code>. Los nombres no distinguen entre
+              mayúsculas y minúsculas.</p>
+              <h3 id="opciones-globales-2">Opciones Globales</h3>
+              <dl>
+              <dt>
+              <code>-t</code>, <code>--token</code>
+              <code>&lt;string&gt;</code>
+              </dt>
+              <dd>
+              usar <code>&lt;string&gt;</code> como token de la API de
+              Todoist
+              </dd>
+              </dl>
+              <h3 id="ejemplos-1">Ejemplos</h3>
+              <div class="sourceCode" id="cb5"><pre
+              class="sourceCode sh"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Listar tareas para el proyecto Life:</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="ex">todoister</span> tasks Life</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Listar tareas para el subproyecto Project del proyecto Work:</span></span>
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="ex">todoister</span> tasks Work/Project</span></code></pre></div>
-             <h2 id="todoister-export">export</h2>
-             <div class="sourceCode" id="cb6"><pre
-             class="sourceCode sh"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">todoister</span> export <span class="pp">[</span><span class="ss">path</span><span class="pp">]</span> <span class="pp">[</span><span class="ss">flags</span><span class="pp">]</span></span></code></pre></div>
-             <p>Exporte todos los proyectos de Todoist como un árbol de
-             archivos JSON o YAML.</p>
-             <ul>
-             <li><code>path</code> es un archivo o directorio donde
-             exportar los proyectos, por defecto
-             <code>index.json</code>.</li>
-             </ul>
-             <h3 id="opciones">Opciones</h3>
-             <dl>
-             <dt>
-             <code>-d</code>, <code>--depth</code>
-             <code>&lt;int&gt;</code>
-             </dt>
-             <dd>
-             profundidad del árbol de subdirectorios a crear en el
-             sistema de archivos al exportar (por defecto es 0, es
-             decir, sin subdirectorios)
-             </dd>
-             <dt>
-             <code>--json</code>
-             </dt>
-             <dd>
-             exportar en formato JSON (por defecto)
-             </dd>
-             <dt>
-             <code>--yaml</code>
-             </dt>
-             <dd>
-             exportar en formato YAML
-             </dd>
-             </dl>
-             <h3 id="opciones-globales-3">Opciones Globales</h3>
-             <dl>
-             <dt>
-             <code>-t</code>, <code>--token</code>
-             <code>&lt;string&gt;</code>
-             </dt>
-             <dd>
-             utilizar <code>&lt;string&gt;</code> como token de la API
-             de Todoist
-             </dd>
-             </dl>
-             <h3 id="ejemplos-2">Ejemplos</h3>
-             <div class="sourceCode" id="cb7"><pre
-             class="sourceCode sh"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Exportar a un único archivo index.json en el directorio actual:</span></span>
+              <h2 id="todoister-export">export</h2>
+              <div class="sourceCode" id="cb6"><pre
+              class="sourceCode sh"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">todoister</span> export <span class="pp">[</span><span class="ss">path</span><span class="pp">]</span> <span class="pp">[</span><span class="ss">flags</span><span class="pp">]</span></span></code></pre></div>
+              <p>Exporte todos los proyectos de Todoist como un árbol de
+              archivos JSON o YAML.</p>
+              <ul>
+              <li><code>path</code> es un archivo o directorio donde
+              exportar los proyectos, por defecto
+              <code>index.json</code>.</li>
+              </ul>
+              <h3 id="opciones">Opciones</h3>
+              <dl>
+              <dt>
+              <code>-d</code>, <code>--depth</code>
+              <code>&lt;int&gt;</code>
+              </dt>
+              <dd>
+              profundidad del árbol de subdirectorios a crear en el
+              sistema de archivos al exportar (por defecto es 0, es
+              decir, sin subdirectorios)
+              </dd>
+              <dt>
+              <code>--json</code>
+              </dt>
+              <dd>
+              exportar en formato JSON (por defecto)
+              </dd>
+              <dt>
+              <code>--yaml</code>
+              </dt>
+              <dd>
+              exportar en formato YAML
+              </dd>
+              </dl>
+              <h3 id="opciones-globales-3">Opciones Globales</h3>
+              <dl>
+              <dt>
+              <code>-t</code>, <code>--token</code>
+              <code>&lt;string&gt;</code>
+              </dt>
+              <dd>
+              utilizar <code>&lt;string&gt;</code> como token de la API
+              de Todoist
+              </dd>
+              </dl>
+              <h3 id="ejemplos-2">Ejemplos</h3>
+              <div class="sourceCode" id="cb7"><pre
+              class="sourceCode sh"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Exportar a un único archivo index.json en el directorio actual:</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="ex">todoister</span> export</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Exportar a un archivo todoist.json en el directorio de inicio:</span></span>
@@ -200,14 +261,14 @@ in English</a></div>
 <span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Exportar a un directorio de proyectos en el inicio, con subdirectorios hasta 3 niveles de profundidad:</span></span>
 <span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="ex">todoister</span> export ~/projects <span class="at">--json</span> <span class="at">-d</span> 3</span></code></pre></div>
-           </div>
-         </main>
+             </div>
+           </main>
          
                </div>
    </div>
 
-   <footer class="footer text-muted">
-     <div>
+   <footer class="bg-gray-50 prose prose-lg max-w-none text-center text-gray-600 text-sm md:ml-64 py-8">
+     <div class="leading-loose">
        <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a>
        Marco Bravo Mejías 2024
 	     <br>
@@ -218,5 +279,43 @@ licencia <a href="https://www.gnu.org/licenses/gpl-3.0.en.html" target="_blank" 
 con <a href="https://pandoc.org/" target="_blank" rel="noopener">pandoc</a>
      </div>
    </footer>
+   <div id="overlay" class="fixed inset-0 bg-black bg-opacity-50 z-10 hidden md:hidden"></div>
+
+   <script>
+      const sidebar = document.getElementById('sidebar');
+      const overlay = document.getElementById('overlay');
+      const menuBtn = document.getElementById('menuBtn');
+
+      menuBtn.addEventListener('click', function() {
+         sidebar.classList.toggle('hidden');
+         overlay.classList.toggle('hidden');
+      });
+
+      // Hide sidebar when clicking overlay on mobile
+      overlay.addEventListener('click', function() {
+         sidebar.classList.add('hidden');
+         overlay.classList.add('hidden');
+      });
+
+      // Hide sidebar when clicking navigation links on mobile
+      sidebar.querySelectorAll('a').forEach(link => {
+         link.addEventListener('click', function() {
+            if (window.innerWidth < 768) {
+               sidebar.classList.add('hidden');
+               overlay.classList.add('hidden');
+            }
+         });
+      });
+
+      // Hide sidebar when clicking outside on mobile
+      document.addEventListener('click', function(event) {
+         if (window.innerWidth < 768 && // md breakpoint
+             !sidebar.contains(event.target) &&
+             !menuBtn.contains(event.target)) {
+             sidebar.classList.add('hidden');
+             overlay.classList.add('hidden');
+         }
+      });
+   </script>
  </body>
 </html>
