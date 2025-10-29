@@ -1,3 +1,23 @@
+/*
+ * Combined and simplified custom styles for layfellow.net
+ * Generated: 2025-09-28 00:15
+ *
+ * This file combines:
+ * - styles-202503312025.css (base theme and normalize.css)
+ * - mystyles-202411020315.css (custom overrides and enhancements)
+ *
+ * Updates:
+ * - Reduced button-square icon sizes by 20%
+ * - Fixed hamburger menu hover state bug on mobile
+ * - Improved hamburger button styling with explicit default states
+ * - Standardized share button sizes to match header button sizes
+ * - Increased share button sizes by 10% for better prominence
+ */
+
+/* ============================================================================
+ * BASE THEME STYLES (from styles-202503312025.css)
+ * ============================================================================ */
+
 /*! normalize.css v7.0.0 | MIT License | github.com/necolas/normalize.css */
 html { line-height: 1.15; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; }
 body { margin: 0; }
@@ -46,6 +66,8 @@ summary { display: list-item; }
 canvas { display: inline-block; }
 template { display: none; }
 [hidden] { display: none; }
+
+/* Highlight.js styles */
 .hljs { display: block; overflow-x: auto; padding: .5em; background: #f0f0f0; }
 .hljs, .hljs-subst { color: #444; }
 .hljs-comment { color: #888; }
@@ -62,6 +84,8 @@ template { display: none; }
 .hljs-meta-string { color: #4d99bf; }
 .hljs-emphasis { font-style: italic; }
 .hljs-strong { font-weight: bold; }
+
+/* Base theme styles */
 html, body { height: 100%; }
 body { background: #fefefe; color: #424242; font-family: "Open Sans", arial, sans-serif; font-size: 15px; }
 h1, h2, h3, h4, h5, h6 { margin-bottom: 20px; text-transform: none; }
@@ -72,20 +96,20 @@ h4 { font-size: 15px; margin-bottom: 5px; }
 h5 { font-size: 14px; margin-bottom: 15px; }
 h6 { font-size: 12px; margin-bottom: 12px; }
 p { line-height: 1.8; margin: 0 0 30px; }
-a { color: #2368b7; text-decoration: none; }
+a { color: #cc3a00; text-decoration: none; }
 ul, ol { line-height: 1.4; margin: 0 0 20px; }
 ul ul, ul ol, ol ul, ol ol { margin: 10px 0 0 20px; }
 ul li, ol li { margin: 0 0 2px; }
 ul li:last-of-type, ol li:last-of-type { margin-bottom: 0; }
-blockquote { border-left: 1px dotted #2368b7; margin: 40px 0; padding: 5px 30px; }
+blockquote { border-left: 1px dotted #cc3a00; margin: 40px 0; padding: 5px 30px; }
 blockquote p { color: #aeadad; display: block; font-style: italic; margin: 0; width: 100%; }
-img { display: block; margin: 0; width: auto; max-width: 100%; }
+img { display: block; margin: 0; width: auto; }
 img[src$="align-center"] { margin: auto; }
 img[src$="align-left"] { float: left; margin-right: 40px; }
 img[src$="align-right"] { float: right; margin-left: 40px; }
 pre { background: #f1f0ea; border: 1px solid #dddbcc; border-radius: 3px; margin: 0 0 20px; overflow-x: auto; padding: 10px; font-size: 12px; }
 pre code { padding: 0; }
-code { padding: 2px 4px; font-size: 90%; color: #2368b7; background-color: #f1f0ea; border-radius: 4px; }
+code { padding: 2px 4px; font-size: 90%; color: #cc3a00; background-color: #f1f0ea; border-radius: 4px; }
 hr { border: none; border-bottom: 1px dotted #303030; margin: 45px 0; }
 table { margin-bottom: 40px; width: 100%; }
 table tbody > tr:nth-child(odd) > td, table tbody > tr:nth-child(odd) > th { background-color: #f7f7f3; }
@@ -100,17 +124,17 @@ table tr { border-bottom: 1px dotted #aeadad; }
 .container { margin: 0 auto; position: relative; width: 100%; max-width: 889px; }
 #wrapper { height: auto; min-height: 100%; margin-bottom: -265px; }
 #wrapper:after { content: ""; display: block; height: 265px; }
-.button { background: #303030; border: none; border-radius: 3px; color: #fefefe; font-size: 12px; font-weight: 700; padding: 10px 12px; text-transform: uppercase; }
-.button:hover { background: #2368b7; }
-.button-square { background: #2368b7; color: #fff; float: left; font-size: 14px; margin: 0 0 0 8px; padding: 3px 8px 4px; }
-.button-square:hover { background: #303030; }
+.button { background: #cc3a00; border: none; border-radius: 3px; color: #fefefe; font-size: 12px; font-weight: 700; padding: 10px 12px; text-transform: uppercase; }
+.button:hover { background: #424242; }
+.button-square { background: #cc3a00; color: #fff; float: left; font-size: 14px; margin: 0 0 0 8px; padding: 3px 8px 4px; }
+.button-square:hover { background: #424242; }
 .error { text-align: center; }
 .comments { margin-top: 10px; }
 .site-header { padding: 40px 0 0; overflow: auto; text-align: center; text-transform: uppercase; }
 .site-title-wrapper { display: table; margin: 0 auto; }
 .site-title { float: left; font-size: 12px; font-weight: 600; margin: 0; text-transform: uppercase; }
-.site-title a { float: left; background: #2368b7; color: #fefefe; padding: 5px 10px 6px; }
-.site-title a:hover { background: #303030; }
+.site-title a { float: left; background: #cc3a00; color: #fefefe; padding: 5px 10px 6px; }
+.site-title a:hover { background: #424242; }
 .site-logo { display: block; }
 .site-logo img { margin: 0; }
 .site-nav { list-style: none; margin: 28px 0 10px; padding: 0; }
@@ -123,9 +147,9 @@ table tr { border-bottom: 1px dotted #aeadad; }
 .page-title { margin: 15px 40px; }
 .post-date, .blog-description { color: #aeadad; font-size: 14px; font-weight: 600; line-height: 1; margin: 25px 0 0; }
 .post-date a, .blog-description a { color: #aeadad; }
-.post-date a:hover, .blog-description a:hover { color: #2368b7; }
+.post-date a:hover, .blog-description a:hover { color: #cc3a00; }
 .post-date:after, .blog-description:after { border-bottom: 1px dotted #303030; content: ""; display: block; margin: 40px auto 0; width: 100px; }
-.post-content a:hover { border-bottom: 1px dotted #2368b7; padding: 0 0 2px; }
+.post-content a:hover { border-bottom: 1px dotted #cc3a00; padding: 0 0 2px; }
 .post-content:last-child { margin-bottom: 0; }
 .post-content .footnote { border-spacing: 0; margin-bottom: 0; }
 .post-content .footnote .label + td { width: 100%; }
@@ -136,19 +160,19 @@ table tr { border-bottom: 1px dotted #aeadad; }
 .post-tags { float: left; margin: 3px 0 20px 10px; }
 .post-tags a:hover { color: #303030; }
 .share { float: right; }
-.share a { background: #2368b7; color: #fff; display: inline-block; font-size: 14px; margin-left: 5px; padding: 5px 0 4px; width: 30px; text-align: center; }
-.share a:hover { background: #303030; }
+.share a { background: #cc3a00; color: #fff; display: inline-block; font-size: 1.144em; margin-left: 5px; padding: 9px; width: 1.144em; text-align: center; border-radius: 15px; }
+.share a:hover { background: #424242; }
 .post-navigation { display: table; margin: 70px auto 100px; }
-.newer-posts, .older-posts { float: left; background: #2368b7; color: #fefefe; font-size: 12px; font-weight: 600; margin: 0 5px; padding: 5px 10px 6px; text-transform: uppercase; }
-.newer-posts:hover, .older-posts:hover { background: #303030; }
+.newer-posts, .older-posts { float: left; background: #cc3a00; color: #fefefe; font-size: 12px; font-weight: 600; margin: 0 5px; padding: 5px 10px 6px; text-transform: uppercase; }
+.newer-posts:hover, .older-posts:hover { background: #424242; }
 .page-number { display: none; }
 .post-list { list-style: none; padding: 0; }
 .post-list, .post-content { margin-left: 2em; margin-right: 1.5em; }
 .post-stub { border-bottom: 1px dotted #303030; margin: 0; position: relative; }
 .post-stub:first-child { padding-top: 0; }
 .post-stub > a { -webkit-transition: all .2s ease-in-out; -moz-transition: all .2s ease-in-out; transition: all .2s ease-in-out; display: block; color: #424242; padding: 20px 5px; }
-.post-stub > a:hover { background: #fffae4; color: #2368b7; padding: 20px 12px; }
-.post-stub > a:hover .post-stub-tag { background: #2368b7; }
+.post-stub > a:hover { background: #fffae4; color: #cc3a00; padding: 20px 12px; }
+.post-stub > a:hover .post-stub-tag { background: #303030; }
 .post-stub-tag { background: #303030; border-radius: 3px; color: #fff; float: right; font-size: 8px; margin: 7px 0 0; padding: 0 5px; text-transform: uppercase; }
 .post-stub-title { display: inline-block; margin: 0; text-transform: none; }
 .post-stub-description { display: inline-block; margin: 0; text-transform: none; }
@@ -164,7 +188,7 @@ table tr { border-bottom: 1px dotted #aeadad; }
 .author-meta span { display: inline-block; margin: 0 10px 8px; }
 .author-meta i { margin-right: 8px; }
 .author-meta a { color: #aeadad; }
-.author-meta a:hover { color: #2368b7; }
+.author-meta a:hover { color: #cc3a00; }
 .author-bio { margin: 20px auto 0; text-align: center; max-width: 700px; }
 .footer { background: #303030; color: #d3d3d3; height: 265px; margin-top: 95px; overflow: auto; }
 .footer .site-title-wrapper { margin: 80px auto 35px; }
@@ -172,9 +196,10 @@ table tr { border-bottom: 1px dotted #aeadad; }
 .footer-copyright { color: #656565; font-size: 13px; margin: 0; text-align: center; text-transform: uppercase; }
 .footer-copyright a { color: #656565; font-weight: 700; }
 .footer-copyright a:hover { color: #fefefe; }
-#nprogress .bar { background: #2368b7; }
-#nprogress .peg { box-shadow: 0 0 10px #2368b7, 0 0 5px #2368b7; }
-#nprogress .spinner-icon { border-top-color: #2368b7; border-left-color: #2368b7; }
+#nprogress .bar { background: #cc3a00; }
+#nprogress .peg { box-shadow: 0 0 10px #cc3a00, 0 0 5px #cc3a00; }
+#nprogress .spinner-icon { border-top-color: #cc3a00; border-left-color: #cc3a00; }
+
 @media only screen and (max-width: 800px) {
  .post-stub-tag { display: none; }
 }
@@ -225,4 +250,387 @@ table tr { border-bottom: 1px dotted #aeadad; }
  .author-meta span { display: block; margin: 18px 0; }
  .post-tags { width: 100%; margin-left: 10px; }
  .footer-copyright { padding: 0 10px; }
+}
+
+/* ============================================================================
+ * CUSTOM OVERRIDES AND ENHANCEMENTS (from mystyles-202411020315.css)
+ * ============================================================================ */
+
+body {
+	font-size: 0.95em;
+}
+
+code, kbd, samp {
+	font-size: 0.9em;
+}
+
+figure {
+	width: auto;
+}
+
+figure img {
+	margin-bottom: 0;
+}
+
+.float-left {
+	float: left;
+}
+
+.float-right {
+	float: right;
+}
+
+figure figcaption, .caption {
+	font-style: italic;
+	font-size: 85%;
+    color: #606060;
+    margin: 0;
+    padding: 0 0 0.5em;
+}
+
+.caption {
+    text-align: right;
+}
+
+blockquote {
+	border-left: 2px dotted #c60;
+	margin: 40px 0;
+	padding: 5px 30px;
+}
+
+blockquote p {
+	color: #2f2f10;
+	display: block;
+	font-style: italic;
+	margin: 0;
+	width: 100%;
+	font-size: 100%;
+}
+
+.post-title, .page-title {
+	font-size: 1.8em;
+	text-shadow: 1px 1px #fff;
+}
+
+.tag-item {
+	text-transform: lowercase;
+}
+
+.tag-cloud {
+	text-align: center;
+	padding: 1.5em 3em 0 3em;
+	line-height: 2.3em;
+}
+
+.tag-cloud-item {
+	border: 2px solid #eddede;
+	border-radius: 5px;
+	background-color: white;
+	padding: 3px 5px 3px 5px;
+}
+
+.tag-cloud-title {
+	margin-top: 2em;
+	display: block;
+	text-align: center;
+}
+
+.home-button {
+	text-transform: none;
+	font-variant: small-caps;
+	font-weight: bold;
+}
+
+.button-square  {
+    border-radius: 18px;
+	font-size: 1.3em;
+	padding: 10px;
+	width: 1.3em;
+}
+
+.button-jump-top {
+    margin: 0 0 0 15px;
+    padding: 8px 12px 8px;
+	text-align: center;
+}
+
+.square-icon {
+	height: 1.12em;
+	width: 1em;
+}
+
+.svg-icon {
+	width: 1.2em;
+	height: 1.2em;
+	margin: 0;
+	padding: 0;
+}
+.site-lang  {
+	list-style: none;
+    text-align: center;
+	padding: 0.1em 0 0.5em 0;
+}
+
+.site-nav-item a.hamburger {
+	font-size: 1.3em;
+    margin: 0 0 0 8px;
+    padding: 8px 10px 8px;
+	display: none;
+}
+
+.share, .share a {
+	font-size: 1.144em;
+    margin: 0 0 0 8px;
+    padding: 9px 13px 9px 13px;
+}
+/* Hamburger button default state - always with white text */
+.site-nav-item a.hamburger {
+    background: #cc3a00;
+    color: #fff;
+}
+
+/* Hamburger button hover state - only on devices with hover capability */
+@media (hover: hover) and (pointer: fine) {
+    .site-nav-item a.hamburger:hover {
+        color: white;
+        background: #424242;
+    }
+}
+
+/* Hamburger button when menu is open - dark background */
+.site-nav.responsive .site-nav-item a.hamburger {
+    color: white;
+    background: #424242;
+}
+
+/* Touch feedback for mobile - brief active state only */
+@media (hover: none) and (pointer: coarse) {
+    .site-nav-item a.hamburger:active {
+        color: white;
+        background: #424242;
+    }
+}
+
+.site-title-wrapper {
+    margin: 0 auto;
+    padding-right: 2.3em;
+}
+
+.nav-lang {
+	padding: 2px;
+}
+
+@media screen and (max-width: 600px) {
+	.site-header {
+		padding-top: 5px;
+	}
+	.site-title-wrapper {
+		float: right;
+		padding-right: 5px;
+	}
+	.site-nav li a {
+		display: none;
+	}
+	.site-nav li a.hamburger {
+		float: left;
+		display: block;
+	}
+	.site-nav.responsive {
+		padding-top: 3em;
+		position: relative;
+	}
+	.site-nav.responsive li a {
+		float: none;
+		display: block;
+		text-align: center;
+	}
+	.site-nav.responsive li a.hamburger {
+		position: absolute;
+		left: 0;
+		top: 0;
+	}
+}
+
+.footer {
+    padding-bottom: 2em;
+}
+
+.footer-buttons-wrapper {
+	display: table;
+	margin: 80px auto 35px;
+}
+
+.headline {
+	font-size: 90%;
+	text-transform: uppercase;
+	text-shadow: 1px 1px #fff;
+}
+
+.post-header {
+	margin-top: 0.7em;
+	padding-top: 0.1em;
+	padding-bottom: 2.5em;
+}
+
+.center-bg {
+	background-position: center top;
+	background-repeat: no-repeat;
+}
+
+.offset-top {
+	padding-top: 1.7em;
+}
+
+.post-date {
+	color: #000;
+	text-shadow: 0 1px  #e6e6e6;
+}
+
+.post-date a {
+	color: #000;
+}
+
+.post-tags {
+	font-size: 95%;
+}
+
+.post-stub-tag {
+	font-size: 70%;
+}
+
+.related-posts {
+	display: table;
+	width: 100%;
+	border-bottom: 1px dotted #303030;
+}
+
+.related-post-item {
+	display: table-cell;
+	width: 50%;
+}
+
+@media screen and (max-width: 760px) {
+	.related-posts {
+		display: block;
+		border-bottom: 0;
+	}
+
+	.related-post-item {
+		display: block;
+		width: 100%;
+		border-bottom: 1px dotted #303030;
+	}
+}
+
+.related-stub {
+	border-bottom: 0;
+}
+
+.section-title {
+	margin-top: 1em;
+	margin-left: 0.2em;
+	padding-top: 0.5em;
+	border-top: 6px solid #303030;
+}
+
+.post-description span, .intro-description span {
+	padding-left: .5em;
+	padding-right: .5em;
+	background-color: #fff;
+}
+
+.more-link {
+	font-weight: bold;
+	text-align: right;
+}
+
+.post-content td {
+	padding: 0.5em 0.5em 1em 0.5em;
+	vertical-align: top;
+	line-height: 150%;
+}
+
+.post-content td a {
+	display: block;
+	font-weight: 700;
+	margin-bottom: 0.5em;
+	padding: 0;
+}
+
+.post-content td a:hover {
+	color: #424242;
+	border-bottom: 0;
+	padding: 0;
+}
+
+.big-icon {
+	padding: 1em;
+}
+
+/* ============================================================================
+ * SVG ICON STYLES
+ * ============================================================================ */
+
+.icon {
+	display: inline-block;
+	width: 1em;
+	height: 1em;
+	vertical-align: -0.125em;
+	fill: currentColor;
+}
+
+/* Size variants if needed */
+.icon-lg {
+	width: 1.25em;
+	height: 1.25em;
+}
+
+.icon-2x {
+	width: 2em;
+	height: 2em;
+}
+
+/* Ensure buttons with icons align properly */
+.button-square .icon {
+	vertical-align: middle;
+}
+
+/* ============================================================================
+ * RESPONSIVE IMAGES
+ * ============================================================================ */
+
+/* Responsive images - ensure they scale properly */
+figure img,
+figure picture,
+figure picture img {
+	max-width: 95%;
+	height: auto;
+	display: block;
+}
+
+/* Picture element should be block-level */
+figure picture {
+	margin: 0;
+}
+
+/* Float support for figures */
+figure.float-left {
+	float: left;
+	margin: 0 30px 20px 0;
+	max-width: 35%;
+}
+
+figure.float-right {
+	float: right;
+	margin: 0 0 20px 30px;
+	max-width: 35%;
+}
+
+@media (max-width: 768px) {
+	figure.float-left,
+	figure.float-right {
+		float: none;
+		margin: 0 0 20px 0;
+		max-width: 100%;
+	}
 }
