@@ -85,7 +85,7 @@
                </svg>
             </button>
             <div class="flex items-center space-x-1">
-               <a href="#"><img alt="Icon" src="img/icon.png" class="h-12 w-12"></a>
+               <a href="#"><img alt="Icon" src="icon.png" class="h-12 w-12"></a>
                <div class="text-sm font-mono text-gray-600"><span class="ml-6">v0.2.2</span></div>
             </div>
          </div>
@@ -100,8 +100,16 @@ in English</a></div>
                     <aside id="sidebar" class="hidden md:block fixed top-[72px] left-0 w-full md:w-64 md:flex-shrink-0 h-screen overflow-y-auto pb-20 bg-white z-20">
              <nav>
               <ul>
-              <li><a href="#todoister" id="toc-todoister" data-target="nav.link" data-action="click->nav#click" data-id="todoister">Commands</a>
+              <li><a href="#todoister" id="toc-todoister">Todoister</a>
               <ul>
+              <li><a href="#instalación"
+              id="toc-instalación">Instalación</a></li>
+              <li><a href="#configuración"
+              id="toc-configuración">Configuración</a></li>
+              <li><a href="#cron-job" id="toc-cron-job">Cron
+              job</a></li>
+              <li><a href="#comandos"
+              id="toc-comandos">Comandos</a></li>
               <li><a href="#todoister-version" data-target="nav.link" data-action="click->nav#click" data-id="todoister-version"
               id="toc-todoister-version">version</a></li>
               <li><a href="#todoister-list" data-target="nav.link" data-action="click->nav#click" data-id="todoister-list"
@@ -117,22 +125,105 @@ in English</a></div>
            <main class="flex-grow md:ml-64 overflow-x-hidden">
              <div class="prose prose-lg max-w-none">
               <h1 id="todoister">Todoister</h1>
-              <p>Todoister es un cliente CLI simple para Todoist escrito
-              en Go.</p>
-              <h3 id="comandos">Comandos</h3>
+              <p><img src="icon.png" /></p>
+              <p>Todoister es un cliente CLI simple para <a
+              href="https://todoist.com/">Todoist</a> escrito en Go.</p>
+              <p><strong>Esta es una versión temprana, con funcionalidad
+              muy reducida.</strong> Actualmente implementado:</p>
               <ul>
-              <li><a href="#todoister-version" data-target="nav.link" data-action="click->nav#click" data-id="todoister-version">version</a> - Imprimir el
-              número de versión</li>
-              <li><a href="#todoister-list" data-target="nav.link" data-action="click->nav#click" data-id="todoister-list">list</a> - Listar
-              proyectos</li>
-              <li><a href="#todoister-tasks" data-target="nav.link" data-action="click->nav#click" data-id="todoister-tasks">tasks</a> - Listar tareas
-              del proyecto</li>
-              <li><a href="#todoister-export" data-target="nav.link" data-action="click->nav#click" data-id="todoister-export">export</a> - Exportar
-              proyectos en formato JSON o YAML</li>
+              <li><code>list</code>: listar proyectos.</li>
+              <li><code>tasks</code>: listar tareas de proyectos.</li>
+              <li><code>export</code>: exportar proyectos y tareas a
+              archivos JSON o YAML.</li>
               </ul>
-              <h2 id="todoister-version">version</h2>
+              <p>Escribí esto porque quería una forma simple y rápida de
+              verificar mis tareas y proyectos de Todoist en un
+              terminal.</p>
+              <p>Además, estaba insatisfecho con la única opción de
+              exportación de Todoist, que es un archivo de valores
+              separados por comas no estructurado (<a
+              href="https://www.oxfordreference.com/display/10.1093/acref/9780199567454.001.0001/acref-9780199567454-e-931">el
+              horror, el horror</a>), que carece del detalle que
+              necesito. Quería algo compatible con cron jobs para
+              respaldos no supervisados, en un formato más manejable,
+              como JSON o YAML.</p>
+              <p><em>Más características como gestión de tareas,
+              creación de proyectos, gestión de etiquetas, etc.
+              próximamente.</em></p>
+              <h2 id="instalación">Instalación</h2>
+              <p>Para Linux y macOS, use:</p>
               <div class="sourceCode" id="cb1"><pre
-              class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">todoister</span> version <span class="pp">[</span><span class="ss">flags</span><span class="pp">]</span></span></code></pre></div>
+              class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> curl <span class="at">-sfL</span> https://layfellow.net/todoister/installer.sh <span class="kw">|</span> <span class="fu">sh</span></span></code></pre></div>
+              <p>Este script descarga el binario más reciente para su
+              plataforma y lo instala en <code>~/.local/bin</code> o
+              <code>~/bin</code>.</p>
+              <p>Para Windows ... eh, <a
+              href="https://www.fsf.org/es/news/la-vida-es-mejor-juntos-cuando-evitas-windows-11">no
+              uso Windows</a>, así que no hay versiones para éste, pero
+              el binario de Linux debería funcionar bajo <a
+              href="https://learn.microsoft.com/en-us/windows/wsl/">WSL
+              2</a>.</p>
+              <p>Alternativamente, si tiene Go (versión 1.22 o
+              posterior), puede descargar, compilar e instalar Todoister
+              con:</p>
+              <div class="sourceCode" id="cb2"><pre
+              class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> go install github.com/layfellow/todoister@latest</span></code></pre></div>
+              <h2 id="configuración">Configuración</h2>
+              <p>Necesita un token de API de Todoist; inicie sesión en
+              su cuenta de Todoist y cree uno <a
+              href="https://app.todoist.com/app/settings/integrations/developer">aquí</a>.</p>
+              <p>Luego escriba un archivo
+              <code>~/.config/todoister/config.toml</code> o
+              <code>~/.todoister.toml</code> y establezca el token:</p>
+              <div class="sourceCode" id="cb3"><pre
+              class="sourceCode toml"><code class="sourceCode toml"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="dt">token</span> <span class="op">=</span> <span class="st">&quot;su-token-de-API-de-todoist&quot;</span></span></code></pre></div>
+              <p>Alternativamente, establezca una variable de
+              entorno:</p>
+              <div class="sourceCode" id="cb4"><pre
+              class="sourceCode sh"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> export TODOIST_TOKEN=<span class="st">&#39;su-token-de-API-de-todoist&#39;</span></span></code></pre></div>
+              <p>O pase el token directamente a través de la línea de
+              comandos:</p>
+              <div class="sourceCode" id="cb5"><pre
+              class="sourceCode sh"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> todoister <span class="at">--token</span><span class="op">=</span><span class="st">&#39;su-token-de-API-de-todoist&#39;</span> comando ...</span></code></pre></div>
+              <p>La opción <code>--token</code> tiene prioridad sobre la
+              variable de entorno, que a su vez tiene precedencia sobre
+              el archivo de configuración.</p>
+              <h2 id="cron-job">Cron job</h2>
+              <p>Es posible ejecutar <code>todoister export</code> en un
+              cron job como una forma de crear respaldos automáticos de
+              Todoist en un formato legible. Puede establecer las
+              opciones de exportación directamente en el archivo de
+              configuración <code>config.toml</code>, para que no tenga
+              que editar el cron tab.</p>
+              <div class="sourceCode" id="cb6"><pre
+              class="sourceCode toml"><code class="sourceCode toml"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">[export]</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="dt">path</span> <span class="op">=</span> <span class="st">&quot;&quot;</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="dt">format</span> <span class="op">=</span> <span class="st">&quot;&quot;</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="dt">depth</span> <span class="op">=</span> <span class="dv">0</span></span></code></pre></div>
+              <p>Por ejemplo, en lugar de
+              <code>todoister export ~/projects --yaml -d 3</code>
+              simplemente ejecute <code>todoist export</code> con:</p>
+              <div class="sourceCode" id="cb7"><pre
+              class="sourceCode toml"><code class="sourceCode toml"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">[export]</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="dt">path</span> <span class="op">=</span> <span class="st">&quot;$HOME/projects&quot;</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="dt">format</span> <span class="op">=</span> <span class="st">&quot;yaml&quot;</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="dt">depth</span> <span class="op">=</span> <span class="dv">3</span></span></code></pre></div>
+              <p>Cuando se ejecuta como un cron job,
+              <code>todoister export</code> registra su actividad en un
+              archivo de log como se establece en:</p>
+              <div class="sourceCode" id="cb8"><pre
+              class="sourceCode toml"><code class="sourceCode toml"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">[log]</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="dt">name</span> <span class="op">=</span> <span class="st">&quot;/ruta/al/archivo/de/registro.log&quot;</span></span></code></pre></div>
+              <p>Consulte el archivo de ejemplo
+              <code>config.toml.example</code> para más detalles.</p>
+              <p>Los registros siguen el formato de <a
+              href="https://pkg.go.dev/log/slog">registro
+              estructurado</a> y se rotan automáticamente. No se
+              escriben registros en modo interactivo.</p>
+              <h2 id="comandos">Comandos</h2>
+              <h2 id="todoister-version">version</h2>
+              <div class="sourceCode" id="cb9"><pre
+              class="sourceCode sh"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">todoister</span> version <span class="pp">[</span><span class="ss">flags</span><span class="pp">]</span></span></code></pre></div>
               <p>Imprime el número de versión de Todoister.</p>
               <h3 id="opciones-globales">Opciones Globales</h3>
               <dl>
@@ -146,8 +237,8 @@ in English</a></div>
               </dd>
               </dl>
               <h2 id="todoister-list">list</h2>
-              <div class="sourceCode" id="cb2"><pre
-              class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">todoister</span> list <span class="pp">[</span><span class="ss">project</span><span class="pp">]</span>... <span class="pp">[</span><span class="ss">flags</span><span class="pp">]</span></span></code></pre></div>
+              <div class="sourceCode" id="cb10"><pre
+              class="sourceCode sh"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="ex">todoister</span> list <span class="pp">[</span><span class="ss">project</span><span class="pp">]</span>... <span class="pp">[</span><span class="ss">flags</span><span class="pp">]</span></span></code></pre></div>
               <p>Lista proyectos y subproyectos.</p>
               <p><code>project</code> es el nombre de uno o más
               proyectos de los cuales listar tareas. Si no se
@@ -167,18 +258,18 @@ in English</a></div>
               </dd>
               </dl>
               <h3 id="ejemplos">Ejemplos</h3>
-              <div class="sourceCode" id="cb3"><pre
-              class="sourceCode sh"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Listar todos los proyectos y subproyectos:</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="ex">todoister</span> ls</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Listar los proyectos Work y Life y sus subproyectos:</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="ex">todoister</span> ls Work Life</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Listar todos los subproyectos de Project, que es un subproyecto de Work:</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="ex">todoister</span> ls Work/Project</span></code></pre></div>
+              <div class="sourceCode" id="cb11"><pre
+              class="sourceCode sh"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Listar todos los proyectos y subproyectos:</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="ex">todoister</span> ls</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Listar los proyectos Work y Life y sus subproyectos:</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="ex">todoister</span> ls Work Life</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Listar todos los subproyectos de Project, que es un subproyecto de Work:</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="ex">todoister</span> ls Work/Project</span></code></pre></div>
               <h2 id="todoister-tasks">tasks</h2>
-              <div class="sourceCode" id="cb4"><pre
-              class="sourceCode sh"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">todoister</span> tasks project... <span class="pp">[</span><span class="ss">flags</span><span class="pp">]</span></span></code></pre></div>
+              <div class="sourceCode" id="cb12"><pre
+              class="sourceCode sh"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="ex">todoister</span> tasks project... <span class="pp">[</span><span class="ss">flags</span><span class="pp">]</span></span></code></pre></div>
               <p>Listar tareas del proyecto.</p>
               <p><code>project</code> es el nombre de uno o más
               proyectos de los cuales listar tareas. Puede especificar
@@ -197,15 +288,15 @@ in English</a></div>
               </dd>
               </dl>
               <h3 id="ejemplos-1">Ejemplos</h3>
-              <div class="sourceCode" id="cb5"><pre
-              class="sourceCode sh"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Listar tareas para el proyecto Life:</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="ex">todoister</span> tasks Life</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Listar tareas para el subproyecto Project del proyecto Work:</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="ex">todoister</span> tasks Work/Project</span></code></pre></div>
+              <div class="sourceCode" id="cb13"><pre
+              class="sourceCode sh"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Listar tareas para el proyecto Life:</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="ex">todoister</span> tasks Life</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Listar tareas para el subproyecto Project del proyecto Work:</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="ex">todoister</span> tasks Work/Project</span></code></pre></div>
               <h2 id="todoister-export">export</h2>
-              <div class="sourceCode" id="cb6"><pre
-              class="sourceCode sh"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">todoister</span> export <span class="pp">[</span><span class="ss">path</span><span class="pp">]</span> <span class="pp">[</span><span class="ss">flags</span><span class="pp">]</span></span></code></pre></div>
+              <div class="sourceCode" id="cb14"><pre
+              class="sourceCode sh"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="ex">todoister</span> export <span class="pp">[</span><span class="ss">path</span><span class="pp">]</span> <span class="pp">[</span><span class="ss">flags</span><span class="pp">]</span></span></code></pre></div>
               <p>Exporte todos los proyectos de Todoist como un árbol de
               archivos JSON o YAML.</p>
               <ul>
@@ -249,18 +340,18 @@ in English</a></div>
               </dd>
               </dl>
               <h3 id="ejemplos-2">Ejemplos</h3>
-              <div class="sourceCode" id="cb7"><pre
-              class="sourceCode sh"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Exportar a un único archivo index.json en el directorio actual:</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="ex">todoister</span> export</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Exportar a un archivo todoist.json en el directorio de inicio:</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="ex">todoister</span> export ~/todoist.json</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Exportar a un archivo todoist.yaml en el directorio de inicio:</span></span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="ex">todoister</span> export ~/todoist.yaml <span class="at">--yaml</span></span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Exportar a un directorio de proyectos en el inicio, con subdirectorios hasta 3 niveles de profundidad:</span></span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="ex">todoister</span> export ~/projects <span class="at">--json</span> <span class="at">-d</span> 3</span></code></pre></div>
+              <div class="sourceCode" id="cb15"><pre
+              class="sourceCode sh"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Exportar a un único archivo index.json en el directorio actual:</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="ex">todoister</span> export</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Exportar a un archivo todoist.json en el directorio de inicio:</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="ex">todoister</span> export ~/todoist.json</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Exportar a un archivo todoist.yaml en el directorio de inicio:</span></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a><span class="ex">todoister</span> export ~/todoist.yaml <span class="at">--yaml</span></span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Exportar a un directorio de proyectos en el inicio, con subdirectorios hasta 3 niveles de profundidad:</span></span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a><span class="ex">todoister</span> export ~/projects <span class="at">--json</span> <span class="at">-d</span> 3</span></code></pre></div>
              </div>
            </main>
          
